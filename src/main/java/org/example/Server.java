@@ -1,5 +1,4 @@
 package org.example;
-
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -44,7 +43,12 @@ public class Server {
                 return;
             }
 
-            final var path = parts[1];
+            final var pathAndQuery = parts[1];
+            System.out.println("Параметры");
+            var parsResultParams = Reqest.getQueryParams(pathAndQuery);
+            var path = Reqest.getQueryParamsPath(pathAndQuery);
+            System.out.println(parsResultParams);
+            System.out.println(path);
             if (!validPaths.contains(path)) {
                 out.write((
                         "HTTP/1.1 404 Not Found\r\n" +
