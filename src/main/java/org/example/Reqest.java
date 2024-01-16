@@ -24,13 +24,4 @@ public class Reqest {
         return parameter;
     }
 
-    public static String getQueryParamsPath(String url) {
-        String result;
-        int i = url.indexOf("?");
-        if (i == -1) {
-            return url;
-        }
-        result = url.substring(0, i);
-        return result;
-    }
 }
